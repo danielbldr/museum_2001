@@ -139,8 +139,11 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
 
-    assert_equal 1, @dmns.draw_lottery_winner(@dead_sea_scrolls).length
     assert_equal nil, @dmns.draw_lottery_winner(@gems_and_minerals)
+
+    @dmns.stubs(:ticket_lottery_contestants).returns([@patron_1])
+
+    assert_equal "Bob", @dmns.draw_lottery_winner(@dead_sea_scrolls)
   end
 
   def test_it_can_announce_lotter_winner

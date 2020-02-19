@@ -50,7 +50,7 @@ class Museum
 
   def draw_lottery_winner(exhibit)
     return nil if ticket_lottery_contestants(exhibit).sample(1) == []
-    ticket_lottery_contestants(exhibit).sample(1)
+    ticket_lottery_contestants(exhibit).sample(1).first.name
   end
 
   def announce_lottery_winner(exhibit)
