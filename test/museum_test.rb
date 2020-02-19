@@ -12,6 +12,11 @@ class MuseumTest < Minitest::Test
   def test_it_exists
     assert_instance_of Museum, @dmns
   end
+
+  def test_it_has_attributes
+    assert_equal "Denver Museum of Nature and Science", @dmns.name
+    assert_equal [], @dmns.exhibits
+  end
 end
 
 # Use TDD to create a `Museum` class that responds to the following interaction pattern. For the `recommend_exhibits` method, the `Museum` should recommend exhibits that match a `Patron`'s interests.
