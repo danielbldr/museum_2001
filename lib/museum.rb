@@ -49,6 +49,12 @@ class Museum
   end
 
   def draw_lottery_winner(exhibit)
+    return nil if ticket_lottery_contestants(exhibit).sample(1) == []
     ticket_lottery_contestants(exhibit).sample(1)
+  end
+
+  def announce_lottery_winner(exhibit)
+    return "No winners for this lottery" if draw_lottery_winner(exhibit).nil?
+    "#{draw_lottery_winner(exhibit)} has won the Dead Sea Scrolls exhibit lottery"
   end
 end
