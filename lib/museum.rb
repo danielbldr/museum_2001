@@ -20,4 +20,8 @@ class Museum
     end
     recommend_exhibits_for_patron
   end
+
+  def admit(patron)
+    @patrons << patron
+  end
 end
