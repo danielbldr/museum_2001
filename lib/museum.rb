@@ -37,4 +37,14 @@ class Museum
     end
     patrons_per_exhibit
   end
+
+  def ticket_lottery_contestants(exhibit)
+    patrons = []
+    @patrons.each do |patron|
+      patron.interests.each do |interest|
+        patrons << patron if exhibit.name && patron.spending_money < exhibit.cost
+      end
+    end
+    patrons.uniq
+  end
 end
